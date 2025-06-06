@@ -23,14 +23,12 @@ ShopEasy is a responsive e-commerce web application designed to help developers 
 | Technology | Description |
 |------------|-------------|
 | ![React](https://img.icons8.com/color/48/000000/react-native.png) | **React.js** – SPA with component-based architecture |
-| ![Router](https://img.icons8.com/ios/30/react.png) | **React Router DOM** – Dynamic routing |
 | 🎨 CSS Modules | Custom professional animations & responsive layout |
 
 ### 🔧 Backend
 | Technology | Description |
 |------------|-------------|
 | ![Node](https://img.icons8.com/color/48/nodejs.png) | **Node.js** – Backend runtime |
-| ![Express](https://img.icons8.com/ios-filled/50/express-js.png) | **Express.js** – API routing and middleware |
 | ![MongoDB](https://img.icons8.com/color/48/mongodb.png) | **MongoDB** – NoSQL database with Mongoose ODM |
 
 ### 🛡️ Authentication
@@ -42,7 +40,6 @@ ShopEasy is a responsive e-commerce web application designed to help developers 
 ### ⚙️ DevOps Goals (Planned)
 - ✅ Dockerize backend and frontend
 - ✅ GitHub Actions CI/CD pipeline
-- ✅ AWS EC2 deployment
 - 🧩 Monitoring & Logging tools (optional)
 
 ---
@@ -147,11 +144,14 @@ Open your browser at: `http://localhost:5174`
 
 ## 📦 Future Enhancements
 
-- [x] Dockerized setup
-- [ ] Admin dashboard UI
-- [ ] Email Notifications
-- [ ] Product Search Auto-Suggestions
-- [ ] Monitoring with Grafana/Prometheus
+## 📦 Future Enhancements
+
+- [ ] 🐳 Dockerized Setup – Containerize frontend & backend for consistent environments  
+- [ ] 🛠️ CI/CD Pipeline – Automate deployment using GitHub Actions / Jenkins   
+- [ ] 📊 Monitoring with Grafana/Prometheus – Track app metrics and logs (DevOps)  
+- [ ] 📦 Infrastructure as Code (IaC) – Setup using Terraform or AWS CloudFormation  
+- [ ] 🚦 Load Balancing & Scaling – AWS ALB with autoscaling groups
+
 
 ---
 
@@ -165,7 +165,6 @@ This project is licensed under the [MIT License](LICENSE).
 
 - [DummyJSON API](https://dummyjson.com) – Free fake e-commerce API
 - [Icons8](https://icons8.com) – Icons used in this README
-- UI inspirations from Dribbble and Behance
 
 ---
 
