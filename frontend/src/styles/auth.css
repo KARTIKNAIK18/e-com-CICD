@@ -1,0 +1,70 @@
+/* styles/auth.css */
+
+.auth-container {
+  max-width: 400px;
+  margin: 60px auto;
+  background: #f0f4f5; /* very light teal-gray */
+  padding: 40px 30px;
+  border-radius: 14px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #344140; /* charcoal green */
+  text-align: center;
+}
+
+.auth-container h2 {
+  margin-bottom: 30px;
+  font-weight: 700;
+  font-size: 2rem;
+  color: #008080; /* teal */
+}
+
+.auth-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.auth-container input[type="text"],
+.auth-container input[type="email"],
+.auth-container input[type="password"] {
+  padding: 14px 18px;
+  border: 1.8px solid #aac2bf; /* light teal */
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+  background-color: #fff;
+  color: #344140; /* charcoal green */
+}
+
+.auth-container input[type="text"]:focus,
+.auth-container input[type="email"]:focus,
+.auth-container input[type="password"]:focus {
+  border-color: #008080; /* teal focus */
+  outline: none;
+  box-shadow: 0 0 8px rgba(0, 128, 128, 0.3);
+}
+
+.auth-container button {
+  padding: 14px 0;
+  background-color: #006666; /* dark teal */
+  color: white;
+  font-weight: 600;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.auth-container button:hover {
+  background-color: #004c4c; /* darker teal on hover */
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .auth-container {
+    margin: 40px 15px;
+    padding: 30px 20px;
+  }
+}

@@ -1,0 +1,159 @@
+/* styles/navbar.css */
+
+:root {
+  --nav-bg: linear-gradient(90deg, #1f3a93, #145374);
+  --nav-text: #f0f4f8;
+  --nav-text-hover: #ffd369;
+  --nav-accent: #ffd369;
+  --nav-button-bg: #31708e;
+  --nav-button-hover-bg: #245d6c;
+  --nav-button-text: #f0f4f8;
+  --nav-shadow: rgba(20, 83, 116, 0.6);
+  --nav-logo-font: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.navbar {
+  width: 100%;
+  max-width: 100vw;   
+  background: var(--nav-bg);
+  padding: 14px 30px;
+  box-sizing: border-box;
+  overflow-x: hidden; 
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 12px var(--nav-shadow);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  user-select: none;
+  font-family: var(--nav-logo-font);
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--nav-text);
+  text-decoration: none;
+  letter-spacing: 2px;
+  position: relative;
+  transition: color 0.3s ease;
+  cursor: pointer;
+}
+
+/* Logo underline animation on hover */
+.logo::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 3px;
+  background: var(--nav-accent);
+  bottom: -6px;
+  left: 0;
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+
+.logo:hover {
+  color: var(--nav-accent);
+}
+
+.logo:hover::after {
+  width: 100%;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+
+.nav-links a,
+.nav-links button {
+  font-size: 1rem;
+  color: var(--nav-text);
+  text-decoration: none;
+  padding: 10px 18px;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  user-select: none;
+}
+
+/* Wishlist & Cart Links */
+.wishlist-link,
+.cart-link {
+  position: relative;
+  padding-left: 26px; /* for emoji space */
+}
+
+/* Smooth color & slight scale on hover */
+.wishlist-link:hover,
+.cart-link:hover {
+  color: var(--nav-accent);
+  transform: scale(1.05);
+  text-shadow: 0 0 5px var(--nav-accent);
+}
+
+/* Buttons */
+.auth-button {
+  background-color: var(--nav-button-bg);
+  color: var(--nav-button-text);
+  border: none;
+  padding: 10px 24px;
+  border-radius: 30px;
+  font-weight: 700;
+  letter-spacing: 0.7px;
+  box-shadow: 0 4px 10px rgba(49, 112, 142, 0.4);
+  transition:
+    background-color 0.3s ease,
+    box-shadow 0.3s ease,
+    transform 0.25s ease;
+  user-select: none;
+}
+
+.auth-button:hover {
+  background-color: var(--nav-button-hover-bg);
+  box-shadow: 0 6px 14px rgba(36, 93, 108, 0.7);
+  transform: scale(1.05);
+}
+
+.logout-btn {
+  background-color: #bb3c3c;
+  box-shadow: 0 4px 10px rgba(187, 60, 60, 0.5);
+}
+
+.logout-btn:hover {
+  background-color: #8b2929;
+  box-shadow: 0 6px 14px rgba(139, 41, 41, 0.8);
+  transform: scale(1.05);
+}
+
+/* Responsive */
+@media (max-width: 650px) {
+  .navbar {
+    flex-direction: column;
+    padding: 14px 20px;
+  }
+
+  .nav-links {
+    gap: 14px;
+    margin-top: 12px;
+  }
+
+  .logo {
+    font-size: 1.6rem;
+  }
+
+  .auth-button,
+  .wishlist-link,
+  .cart-link {
+    padding: 8px 14px;
+    font-size: 0.95rem;
+  }
+}

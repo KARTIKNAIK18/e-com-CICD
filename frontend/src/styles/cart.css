@@ -1,0 +1,124 @@
+/* styles/cart.css */
+
+:root {
+  --cart-bg: #f9fbfc;
+  --cart-item-bg: #ffffff;
+  --cart-border: #d3e0ea;
+  --cart-text: #2f4550;
+  --cart-accent: #0077b6;
+  --cart-btn-bg: #ff6b6b;
+  --cart-btn-hover: #d64545;
+  --cart-shadow: rgba(0, 0, 0, 0.08);
+  --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.cart-container {
+  max-width: 900px;
+  margin: 60px auto;
+  padding: 30px;
+  background-color: var(--cart-bg);
+  border-radius: 16px;
+  box-shadow: 0 6px 20px var(--cart-shadow);
+  font-family: var(--font-main);
+  color: var(--cart-text);
+  transition: all 0.3s ease;
+}
+
+.cart-container h1 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 30px;
+  color: var(--cart-accent);
+}
+
+.cart-items {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  background-color: var(--cart-item-bg);
+  padding: 16px 20px;
+  border-radius: 14px;
+  border: 1px solid var(--cart-border);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.cart-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 119, 182, 0.15);
+}
+
+.cart-image {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  margin-right: 24px;
+  border-radius: 12px;
+  border: 1px solid #ccc;
+}
+
+.cart-item h3 {
+  margin: 0 0 6px;
+  font-size: 1.2rem;
+  color: var(--cart-text);
+}
+
+.cart-item p {
+  margin: 0 0 12px;
+  font-weight: bold;
+  color: var(--cart-accent);
+}
+
+.cart-item button {
+  background-color: var(--cart-btn-bg);
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.cart-item button:hover {
+  background-color: var(--cart-btn-hover);
+}
+
+.cart-container h2 {
+  margin-top: 30px;
+  text-align: right;
+  font-size: 1.5rem;
+  color: var(--cart-accent);
+}
+
+/* Empty cart message */
+.cart-container p {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #888;
+  padding: 20px;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .cart-item {
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .cart-image {
+    margin-bottom: 12px;
+    width: 100%;
+    height: auto;
+  }
+
+  .cart-container h2 {
+    text-align: center;
+  }
+}

@@ -1,0 +1,112 @@
+/* styles/wishlist.css */
+
+:root {
+  --wish-bg: #f8f7fc;
+  --wish-card-bg: #ffffff;
+  --wish-border: #e0d4fd;
+  --wish-text: #3e3a5c;
+  --wish-accent: #7b2cbf;
+  --wish-btn-bg: #f76767;
+  --wish-btn-hover: #d84343;
+  --wish-shadow: rgba(0, 0, 0, 0.08);
+  --wish-font: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.wishlist-container {
+  max-width: 900px;
+  margin: 60px auto;
+  padding: 30px;
+  background-color: var(--wish-bg);
+  border-radius: 16px;
+  box-shadow: 0 6px 20px var(--wish-shadow);
+  font-family: var(--wish-font);
+  color: var(--wish-text);
+  transition: all 0.3s ease;
+}
+
+.wishlist-container h1 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 30px;
+  color: var(--wish-accent);
+}
+
+.wishlist-items {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.wishlist-item {
+  display: flex;
+  align-items: center;
+  background-color: var(--wish-card-bg);
+  padding: 16px 20px;
+  border-radius: 14px;
+  border: 1px solid var(--wish-border);
+  box-shadow: 0 4px 12px rgba(123, 44, 191, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.wishlist-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(123, 44, 191, 0.2);
+}
+
+.wishlist-item img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  margin-right: 24px;
+  border-radius: 12px;
+  border: 1px solid #ccc;
+}
+
+.wishlist-item h3 {
+  margin: 0 0 6px;
+  font-size: 1.2rem;
+  color: var(--wish-text);
+}
+
+.wishlist-item p {
+  margin: 0 0 12px;
+  font-weight: bold;
+  color: var(--wish-accent);
+}
+
+.wishlist-item button {
+  background-color: var(--wish-btn-bg);
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.wishlist-item button:hover {
+  background-color: var(--wish-btn-hover);
+}
+
+.wishlist-container p {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #888;
+  padding: 20px;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .wishlist-item {
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .wishlist-item img {
+    margin-bottom: 12px;
+    width: 100%;
+    height: auto;
+  }
+}

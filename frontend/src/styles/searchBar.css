@@ -1,0 +1,39 @@
+/* styles/searchBar.css */
+
+:root {
+  --search-border: #ccc;
+  --search-focus: #7b2cbf;
+  --search-bg: #ffffff;
+  --search-shadow: rgba(0, 0, 0, 0.08);
+  --search-text: #333;
+  --search-font: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.search-bar {
+  width: 100%;
+  max-width: 400px;
+  padding: 12px 18px;
+  font-size: 1rem;
+  border: 2px solid var(--search-border);
+  border-radius: 30px;
+  background-color: var(--search-bg);
+  color: var(--search-text);
+  box-shadow: 0 4px 10px var(--search-shadow);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  font-family: var(--search-font);
+  outline: none;
+}
+
+.search-bar:focus {
+  border-color: var(--search-focus);
+  box-shadow: 0 0 8px rgba(123, 44, 191, 0.3);
+}
+
+@media (max-width: 500px) {
+  .search-bar {
+    max-width: 100%;
+    padding: 10px 16px;
+    font-size: 0.95rem;
+  }
+}
+    

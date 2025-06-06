@@ -1,0 +1,80 @@
+/* styles/productDetails.css */
+
+:root {
+  --product-bg: #ffffff;
+  --product-text: #2d2d2d;
+  --product-muted: #6c757d;
+  --product-border: #e0e0e0;
+  --product-shadow: rgba(0, 0, 0, 0.05);
+  --product-accent: #7b2cbf;
+  --product-font: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.product-details {
+  max-width: 900px;
+  margin: 60px auto;
+  background-color: var(--product-bg);
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px var(--product-shadow);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: var(--product-font);
+  text-align: center;
+  animation: fadeIn 0.6s ease;
+}
+
+.product-image {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 12px;
+  margin-bottom: 30px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+  object-fit: cover;
+}
+
+.product-details h1 {
+  font-size: 2rem;
+  color: var(--product-accent);
+  margin-bottom: 20px;
+}
+
+.product-details p {
+  font-size: 1.05rem;
+  color: var(--product-text);
+  line-height: 1.6;
+  margin-bottom: 12px;
+}
+
+.product-details strong {
+  color: var(--product-muted);
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .product-details {
+    margin: 30px 16px;
+    padding: 30px 20px;
+  }
+
+  .product-details h1 {
+    font-size: 1.6rem;
+  }
+
+  .product-details p {
+    font-size: 1rem;
+  }
+}
