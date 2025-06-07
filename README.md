@@ -142,7 +142,7 @@ Open your browser at: `http://localhost:5174`
 
 ---
 
-## 📦 Future Enhancements
+
 
 ## 📦 Future Enhancements
 
