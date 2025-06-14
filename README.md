@@ -13,34 +13,24 @@
 
 **ShopEasy** is a work-in-progress e-commerce web app built mainly to explore DevOps workflows. The focus is on containerization with Kubernetes, deployment practices, and eventually setting up CI/CD.
 
----
 
-## 📸 Demo & Screenshots
-
-> Live demo coming soon.  
-> Screenshots will be added as UI progresses.
-
----
 
 ## 🧰 Tech Stack
 
 ### 🖥️ Frontend
-| Technology | Description |
-|------------|-------------|
-| ![React](https://img.icons8.com/color/48/000000/react-native.png) | React.js (SPA with basic component structure) |
-| CSS Modules | Responsive layout with modular styling |
+
+![React](https://img.icons8.com/color/48/000000/react-native.png)  React.js
+CSS Modules 
 
 ### 🔙 Backend
-| Technology | Description |
-|------------|-------------|
-| ![Node](https://img.icons8.com/color/48/nodejs.png) | Node.js + Express |
-| ![MongoDB](https://img.icons8.com/color/48/mongodb.png) | MongoDB via Mongoose |
+
+![Node](https://img.icons8.com/color/48/nodejs.png)  Node.js + Express 
+![MongoDB](https://img.icons8.com/color/48/mongodb.png)  MongoDB via Mongoose 
 
 ### 🔐 Authentication
-| Tool | Description |
-|------|-------------|
-| JWT | Token-based user authentication |
-| bcrypt | Secure password hashing |
+
+JWT : Token-based user authentication 
+bcrypt : Secure password hashing 
 
 ---
 
