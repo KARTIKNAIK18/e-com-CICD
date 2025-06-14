@@ -1,118 +1,109 @@
-# 🛒 ShopEasy – E-commerce Web App (DevOps-Focused)
+
+
+
+
+
+# 🛒 ShopEasy – DevOps Learning E-commerce App
 
 ![React](https://img.shields.io/badge/Frontend-React-blue?logo=react)
 ![Node.js](https://img.shields.io/badge/Backend-Node.js-green?logo=node.js)
 ![MongoDB](https://img.shields.io/badge/Database-MongoDB-brightgreen?logo=mongodb)
 ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
-![Status](https://img.shields.io/badge/status-Development-informational)
+![Status](https://img.shields.io/badge/status-In%20Progress-lightgrey)
 
-ShopEasy is a responsive e-commerce web application designed to help developers practice DevOps pipelines, containerization, and deployment workflows. With a clean UI, real-time features, and MongoDB integration, it covers the entire shopping flow.
+**ShopEasy** is a work-in-progress e-commerce web app built mainly to explore DevOps workflows. The focus is on containerization with Kubernetes, deployment practices, and eventually setting up CI/CD.
 
 ---
 
-## 🔥 Demo
+## 📸 Demo & Screenshots
 
-> 🌐 Live link coming soon  
-> 📸 Screenshots will be added after full styling integration
+> Live demo coming soon.  
+> Screenshots will be added as UI progresses.
 
 ---
 
 ## 🧰 Tech Stack
 
-### 🚀 Frontend
+### 🖥️ Frontend
 | Technology | Description |
 |------------|-------------|
-| ![React](https://img.icons8.com/color/48/000000/react-native.png) | **React.js** – SPA with component-based architecture |
-| 🎨 CSS Modules | Custom professional animations & responsive layout |
+| ![React](https://img.icons8.com/color/48/000000/react-native.png) | React.js (SPA with basic component structure) |
+| CSS Modules | Responsive layout with modular styling |
 
-### 🔧 Backend
+### 🔙 Backend
 | Technology | Description |
 |------------|-------------|
-| ![Node](https://img.icons8.com/color/48/nodejs.png) | **Node.js** – Backend runtime |
-| ![MongoDB](https://img.icons8.com/color/48/mongodb.png) | **MongoDB** – NoSQL database with Mongoose ODM |
+| ![Node](https://img.icons8.com/color/48/nodejs.png) | Node.js + Express |
+| ![MongoDB](https://img.icons8.com/color/48/mongodb.png) | MongoDB via Mongoose |
 
-### 🛡️ Authentication
+### 🔐 Authentication
 | Tool | Description |
 |------|-------------|
-| 🔐 JWT | Secure user auth with tokens |
-| 🔏 bcrypt | Password hashing |
-
----
-- ✅ Dockerize backend and frontend
-- ✅ GitHub Actions CI/CD pipeline
-- 🧩 Monitoring & Logging tools (optional)
+| JWT | Token-based user authentication |
+| bcrypt | Secure password hashing |
 
 ---
 
-## ✨ Features
+## ⚙️ DevOps Progress
 
-- 🔐 JWT-based Login/Signup
-- 🛒 Add to Cart / View Cart
-- ❤️ Wishlist Feature
-- 🧑‍💼 Admin Product Control
-- 🔍 Search Functionality
-- 🖼️ Animated UI with responsive layout
-- 🗃️ MongoDB Integration
-- 🌈 Professional UI/UX
+- ✅ Kubernetes manifests created (frontend + backend)
+- ✅ Ingress configured for routing
+- 🛠️ CI/CD setup (coming next)
+- 🧪 Monitoring & Logging (planned for later)
 
 ---
 
-## 📁 Folder Structure
+## ✨ Basic Features (So Far)
+
+- Signup / Login (JWT auth)
+- Add to Cart / View Cart
+- Wishlist (early version)
+- Admin product management (basic)
+- Search
+- Responsive layout (basic animations)
+- MongoDB integration
+
+> Feature development is ongoing and subject to change as DevOps tooling progresses.
+
+---
+
+## 📁 Project Structure
 
 ```bash
 project-root/
-├── backend/                 # Express + MongoDB server
-│   ├── controllers/
-│   ├── models/
-│   ├── routes/
-│   └── server.js
-├── frontend/                # React app
-│   ├── components/
-│   ├── context/
-│   ├── pages/
-│   ├── styles/
-│   └── App.js
-└── README.md
+├── backend/                 # Express API
+├── frontend/                # React App
+└── k8s/                     # Kubernetes manifests
 ```
 
 ---
 
-## 🛠️ Setup Instructions
+## 🚀 Getting Started
 
-### 📌 Prerequisites
+### Prerequisites
 
-- Node.js (v16+)
-- MongoDB installed locally or Atlas URI
-- npm / yarn
+* Node.js (v16+)
+* MongoDB (local or Atlas)
+* npm / yarn
 
----
-
-### ⚙️ Installation
-
-1. **Clone the repository**
+### Installation
 
 ```bash
 git clone https://github.com/yourusername/shopeasy.git
 cd shopeasy
-```
 
-2. **Install frontend dependencies**
-
-```bash
+# Install frontend
 cd frontend
 npm install
-```
 
-3. **Install backend dependencies**
-
-```bash
+# Install backend
 cd ../backend
 npm install
 ```
 
-4. **Configure Environment Variables**
+### Environment Variables
 
-Create a `.env` file in the `backend/` folder:
+Create `.env` inside `backend/`:
 
 ```env
 PORT=5174
@@ -122,55 +113,144 @@ JWT_SECRET=your_jwt_secret
 
 ---
 
-## 🏁 Running the App Locally
-
-1. **Start the backend**
+## 🧪 Run Locally
 
 ```bash
+# Backend
 cd backend
 npm start
-```
 
-2. **Start the frontend**
-
-```bash
+# Frontend
 cd ../frontend
 npm run dev
 ```
 
-Open your browser at: `http://localhost:5174`
+Open `http://localhost:5174` in your browser.
 
 ---
 
+## ☸️ Kubernetes Setup (`k8s/` Folder)
 
+This project includes Kubernetes manifest files to deploy the full stack locally using **Minikube**. This includes backend, frontend, MongoDB, persistent volumes, secrets, and ingress routing.
 
-## 📦 Future Enhancements
+---
 
-- [ ] 🐳 Dockerized Setup – Containerize frontend & backend for consistent environments  
-- [ ] 🛠️ CI/CD Pipeline – Automate deployment using GitHub Actions / Jenkins   
-- [ ] 📊 Monitoring with Grafana/Prometheus – Track app metrics and logs (DevOps)  
-- [ ] 📦 Infrastructure as Code (IaC) – Setup using Terraform or AWS CloudFormation  
-- [ ] 🚦 Load Balancing & Scaling – AWS ALB with autoscaling groups
+### 📁 k8s Folder Structure
 
+```bash
+k8s/
+├── ecom-backend-deployment.yml       # Backend deployment
+├── ecom-backend-service.yml          # Backend service
+├── ecom-frontend-deployment.yml      # Frontend deployment
+├── ecom-frontend-service.yml         # Frontend service
+├── ecom-ingress.yml                  # Ingress routing
+├── ecom-mongo-service.yml            # MongoDB service
+├── mongodb-deployment.yml            # MongoDB deployment
+├── mongo-pvc.yml                     # PersistentVolumeClaim for Mongo
+├── ecom-pv.yml                       # PersistentVolume definition
+├── secret.yml                        # Secrets for sensitive env vars
+├── namespace.yml                     # Custom namespace (optional)
+├── kube.sh                           # Shell script to apply all files
+```
+
+---
+
+### 🚀 Steps to Deploy
+
+#### 1. **Start Minikube**
+
+```bash
+minikube start
+```
+
+#### 2. **Enable Ingress Addon**
+
+```bash
+minikube addons enable ingress
+```
+
+#### 3. **Run Deployment Script**
+
+```bash
+cd k8s
+chmod +x kube.sh
+./kube.sh
+```
+
+Or apply manually:
+
+```bash
+kubectl apply -f namespace.yml
+kubectl apply -f secret.yml
+kubectl apply -f mongo-pvc.yml
+kubectl apply -f ecom-pv.yml
+kubectl apply -f mongodb-deployment.yml
+kubectl apply -f ecom-mongo-service.yml
+kubectl apply -f ecom-backend-deployment.yml
+kubectl apply -f ecom-backend-service.yml
+kubectl apply -f ecom-frontend-deployment.yml
+kubectl apply -f ecom-frontend-service.yml
+kubectl apply -f ecom-ingress.yml
+```
+
+> ⚠️ Apply in order to avoid dependency issues.
+
+---
+
+### 🧾 Update `/etc/hosts`
+
+Edit your `/etc/hosts` file and add:
+
+```bash
+121.0.0.1 shopeasy.local
+```
+
+> Used in Ingress config for local testing.
+
+---
+
+### ✅ Verify Setup
+
+```bash
+kubectl get all -n your-namespace-name  # if using a namespace
+kubectl get ingress
+```
+
+Then visit:
+
+```
+http://shopeasy.local
+```
+
+---
+
+### 📌 Notes
+
+- Make sure ports match (5174 backend, etc.)
+- Mongo uses PVC + PV for storage
+- Secrets handled via `secret.yml`
+- `kube.sh` helps deploy all manifests at once
+
+---
+
+## 📌 Next Steps
+
+* [ ] CI/CD pipeline with GitHub Actions
+* [ ] Monitoring setup
+* [ ] Infra enhancements (IaC, scaling, etc.)
 
 ---
 
 ## 📚 License
 
-This project is licensed under the [MIT License](LICENSE).
+MIT – see [LICENSE](LICENSE)
 
 ---
-
-## 🙌 Acknowledgements
-
-- [DummyJSON API](https://dummyjson.com) – Free fake e-commerce API
-- [Icons8](https://icons8.com) – Icons used in this README
-
 ---
 
 ## 🤝 Connect
 
 **Kartik Naik**  
-📧 [x45961020@gmail.com](mailto:x45961020@gmail.com)   
-🐙 [GitHub](https://github.com/KARTIKNAIK18)
+📧 [x45960@gmail.com](mailto:x45960@gmail.com)  
+🐙 [GitHub](https://github.com/KARKNAIK18)
 
