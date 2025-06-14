@@ -7,10 +7,12 @@ const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
+const BASE_URL = process.env.REACT_APP_BACKEND_URL || "http://localhost:5000"; 
+
     const handleLogin = async (e) => {
         e.preventDefault();
         try {
-            const res = await axios.post('http://localhost:5000/api/auth/login', { email, password });
+            const res = await axios.post('http://${BASE_URL}/api/auth/login', { email, password });
             localStorage.setItem('token', res.data.token);
             window.location.href = "/";
         } catch (error) {

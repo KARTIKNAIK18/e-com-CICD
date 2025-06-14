@@ -7,10 +7,14 @@ const Signup = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
+    const BASE_URL = process.env.REACT_APP_BACKEND_URL || "http://localhost:5000"; 
+;
+
+
     const handleSignup = async (e) => {
         e.preventDefault();
         try {
-            await axios.post('http://localhost:5000/api/auth/signup', { name, email, password });
+            await axios.post('http://${BASE_URL}/api/auth/signup', { name, email, password });
             alert('Signup successful! Please log in.');
         } catch (error) {
             alert('Signup failed!');
