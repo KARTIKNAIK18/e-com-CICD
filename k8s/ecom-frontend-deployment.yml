@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: front-deployment
+  namespace: e-com
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: front-deployment
+  template:
+    metadata:
+      labels:
+        app: front-deployment
+    spec:
+      containers:
+      - name: front-deployment
+        image: kartiknaik/frontend-ecom:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 5174
+        env:
+        - name: VITE_BACKEND_URL
+          value: "http://backend-svc:5000"
+

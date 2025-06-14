@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: ecom-mongo-service
+  namespace: e-com
+spec:
+  selector:
+    app: mongodb-deployment
+  ports:
+  - port: 27017
+    targetPort: 27017
+  type: ClusterIP
