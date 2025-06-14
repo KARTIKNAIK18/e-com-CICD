@@ -19,18 +19,19 @@
 
 ### 🖥️ Frontend
 
-![React](https://img.icons8.com/color/48/000000/react-native.png)  React.js
-CSS Modules 
+![React](https://img.icons8.com/color/48/000000/react-native.png) React.js  
+CSS Modules for styling  
 
 ### 🔙 Backend
 
-![Node](https://img.icons8.com/color/48/nodejs.png)  Node.js + Express 
-![MongoDB](https://img.icons8.com/color/48/mongodb.png)  MongoDB via Mongoose 
+![Node](https://img.icons8.com/color/48/nodejs.png) Node.js + Express  
+![MongoDB](https://img.icons8.com/color/48/mongodb.png) MongoDB via Mongoose  
 
 ### 🔐 Authentication
 
-JWT : Token-based user authentication 
-bcrypt : Secure password hashing 
+JWT – Token-based user authentication  
+bcrypt – Secure password hashing
+
 
 ---
 
