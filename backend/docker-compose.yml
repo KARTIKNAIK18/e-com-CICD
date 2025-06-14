@@ -8,8 +8,13 @@ services:
     ports:
       - "5000:5000"
     environment:
+<<<<<<< HEAD
       - MONGO_URI=mongodb://mongodb:27017/ecomdb
       - JWT_SECRET= "your jwt secert key "
+=======
+      - MONGO_URI=mongodb://"yourcontainernameofmongodb":27017/ecomdb
+      - JWT_SECRET= "your jwt key"  
+>>>>>>> d9430f394f330e9ec43bd6bf21ccfd73cefe3d61
     depends_on:
       - mongodb
 

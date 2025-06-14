@@ -37,7 +37,7 @@ ShopEasy is a responsive e-commerce web application designed to help developers 
 | 🔐 JWT | Secure user auth with tokens |
 | 🔏 bcrypt | Password hashing |
 
-### ⚙️ DevOps Goals (Planned)
+---
 - ✅ Dockerize backend and frontend
 - ✅ GitHub Actions CI/CD pipeline
 - 🧩 Monitoring & Logging tools (optional)
@@ -142,7 +142,7 @@ Open your browser at: `http://localhost:5174`
 
 ---
 
-## 📦 Future Enhancements
+
 
 ## 📦 Future Enhancements
 
