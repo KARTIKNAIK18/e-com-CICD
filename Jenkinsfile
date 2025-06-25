@@ -17,7 +17,7 @@ pipeline {
         steps{
             sh 'cd backend'
             script{
-                if(!fileExists(Dockerfile)){
+                 if (!fileExists('backend/Dockerfile')){
                     error "❌ Dockerfile not found!"    
                 }else{
                     echo "✅ Dockerfile is present."
