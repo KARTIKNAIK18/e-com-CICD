@@ -14,7 +14,7 @@ pipeline {
         }
     }
     stage('dockerfile check'){
-        step{
+        steps{
             sh 'cd backend'
             script{
                 if(!fileExists(Dockerfile)){
