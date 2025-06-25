@@ -2,16 +2,9 @@ pipeline {
     agent any
 
     stages {
-        stage('Checkout') {
+        stage('Clone Repository') {
             steps {
-                // git credentialsId: 'github-token', url: 'https://github.com/YOUR_USERNAME/YOUR_REPO.git'
-                git clone 'https://github.com/YOUR_USERNAME/YOUR_REPO.git'
-            }
-        }
-
-        stage('List Files') {
-            steps {
-                sh 'ls -la'
+                git credentialsId: 'github-cred', url: 'https://github.com/KARTIKNAIK18/e-com-CICD.git', branch: 'main'
             }
         }
     }
