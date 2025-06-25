@@ -13,6 +13,18 @@ pipeline {
             sh 'ls -l'
         }
     }
-        
+    stage('dockerfile check'){
+        step{
+            sh 'cd backend'
+            script{
+                if(!fileExists(Dockerfile)){
+                    error "❌ Dockerfile not found!"    
+                }else{
+                    echo "✅ Dockerfile is present."
+                }   
+            }
+        }
+    }       
   }
 }
+
