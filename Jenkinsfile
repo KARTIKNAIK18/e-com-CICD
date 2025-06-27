@@ -26,6 +26,7 @@ pipeline {
             }
         }
     }
+}
     stage('build the image'){
         steps{
             script{
@@ -38,7 +39,7 @@ pipeline {
             }
         }
     }       
-  }
+  
 }
 }
 
