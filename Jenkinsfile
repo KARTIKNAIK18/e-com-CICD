@@ -15,13 +15,26 @@ pipeline {
     }
     stage('dockerfile check'){
         steps{
-            sh 'cd backend'
             script{
                  if (!fileExists('backend/Dockerfile')){
+                    error "❌ Dockerfile not found!"    
+                 if (!fileExists('frontend/Dockerfile')){
                     error "❌ Dockerfile not found!"    
                 }else{
                     echo "✅ Dockerfile is present."
                 }   
+            }
+        }
+    }
+    stage('build the image'){
+        steps{
+            script{
+                dir('frontend'){
+                   sh  'docker build -t kartiknaik/frontend-ecom .'
+                }
+                dir('backend'){
+                   sh  'docker build -t kartiknaik/e-com-backend .'
+                }
             }
         }
     }       
