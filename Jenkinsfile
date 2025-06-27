@@ -1,6 +1,3 @@
-
-
-
 pipeline {
     agent any
     stages {
@@ -13,6 +10,7 @@ pipeline {
         stage('List All the Files') {
             steps {
                 sh 'ls -l'
+                sh 'whoami'
             }
         }
 
