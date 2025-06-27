@@ -29,6 +29,7 @@ pipeline {
 }
     stage('build the image'){
         steps{
+            sh 'sudo usermod -aG docker $USER'
             script{
                 dir('frontend'){
                    sh  'docker build -t kartiknaik/frontend-ecom .'
