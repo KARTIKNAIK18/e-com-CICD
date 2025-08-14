@@ -7,16 +7,16 @@ const Signup = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-    const BASE_URL = process.env.REACT_APP_BACKEND_URL || "http://localhost:5000"; 
-;
-
+    const BASE_URL = import.meta.env.VITE_BACKEND_URL || "http://localhost:5000";
+    console.log("Backend URL:", BASE_URL);
 
     const handleSignup = async (e) => {
         e.preventDefault();
         try {
-            await axios.post('http://${BASE_URL}/api/auth/signup', { name, email, password });
+            await axios.post(`${BASE_URL}/api/auth/signup`, { name, email, password });
             alert('Signup successful! Please log in.');
         } catch (error) {
+            console.error(error);
             alert('Signup failed!');
         }
     };
@@ -30,7 +30,6 @@ const Signup = () => {
                 <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
                 <button type="submit">Signup</button>
                 <p>Already have an account? <a href="/login">Login here</a></p>
-
             </form>
         </div>
     );

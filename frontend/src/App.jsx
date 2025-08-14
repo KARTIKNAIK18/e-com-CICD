@@ -4,7 +4,7 @@ import Home from './pages/Home';
 import ProductDetails from './pages/ProductDetails';
 import Cart from './pages/Cart';
 import Wishlist from './pages/Wishlist';
-import Login from './pages/Login';
+import Login from './pages/Login'
 import Signup from './pages/Signup';
 import WishlistProvider from './context/WishlistContext'; // ✅ Import WishlistProvider
 import './styles/global.css';
@@ -19,7 +19,7 @@ function App() {
                     <Route path="/product/:id" element={<ProductDetails />} />
                     <Route path="/cart" element={<Cart />} />
                     <Route path="/wishlist" element={<Wishlist />} />
-                    <Route path="/login" element={<Login />} />
+                    <Route path="/login" element= {<Login/>}/>
                     <Route path="/signup" element={<Signup />} />
                 </Routes>
             </Router>
