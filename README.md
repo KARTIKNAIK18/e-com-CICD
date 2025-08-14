@@ -30,7 +30,7 @@ helm repo update
 ```
 
 **Screenshot:**  
-![Helm Repo Add](https://chatgpt.com/c/helmrepoadd.png)
+![Helm Repo Add](resources/helmrepoadd.png)
 
 ----------
 
