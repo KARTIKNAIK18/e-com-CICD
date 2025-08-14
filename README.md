@@ -1,243 +1,135 @@
+<img width="660" height="77" alt="image" src="https://github.com/user-attachments/assets/c5d7c929-2b74-4589-80a7-e7fb5e81edd6" />
+# 📊 Netdata Monitoring – Kubernetes Guide
 
-
-
-
-
-# 🛒 ShopEasy – DevOps Learning E-commerce App
-
-![React](https://img.shields.io/badge/Frontend-React-blue?logo=react)
-![Node.js](https://img.shields.io/badge/Backend-Node.js-green?logo=node.js)
-![MongoDB](https://img.shields.io/badge/Database-MongoDB-brightgreen?logo=mongodb)
+![Status](https://img.shields.io/badge/status-Setup%20Complete-lightgrey)  
 ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
-![Status](https://img.shields.io/badge/status-In%20Progress-lightgrey)
 
-**ShopEasy** is a work-in-progress e-commerce web app built mainly to explore DevOps workflows. The focus is on containerization with Kubernetes, deployment practices, and eventually setting up CI/CD.
+This guide demonstrates how to **deploy Netdata monitoring** on a Kubernetes cluster using **Helm**, including NodePort access, custom namespace, and verifying dashboards. Screenshots and commands are included for easy setup.
 
+----------
 
+## 🧰 Prerequisites
 
-## 🧰 Tech Stack
+-   Kubernetes cluster (Kind, Minikube, or any cloud provider)
+    
+-   Helm v3+ installed
+    
+-   `kubectl` configured for your cluster
+    
 
-### 🖥️ Frontend
+----------
 
-![React](https://img.icons8.com/color/48/000000/react-native.png) React.js  
-CSS Modules for styling  
+## 🚀 Helm Installation Steps
 
-### 🔙 Backend
-
-![Node](https://img.icons8.com/color/48/nodejs.png) Node.js + Express  
-![MongoDB](https://img.icons8.com/color/48/mongodb.png) MongoDB via Mongoose  
-
-### 🔐 Authentication
-
-JWT – Token-based user authentication  
-bcrypt – Secure password hashing
-
-
----
-
-## ⚙️ DevOps Progress
-
-- ✅ Kubernetes manifests created (frontend + backend)
-- ✅ Ingress configured for routing
-- 🛠️ CI/CD setup (coming next)
-- 🧪 Monitoring & Logging (planned for later)
-
----
-
-## ✨ Basic Features (So Far)
-
-- Signup / Login (JWT auth)
-- Add to Cart / View Cart
-- Wishlist (early version)
-- Admin product management (basic)
-- Search
-- Responsive layout (basic animations)
-- MongoDB integration
-
-> Feature development is ongoing and subject to change as DevOps tooling progresses.
-
----
-
-## 📁 Project Structure
+### 1️⃣ Add Netdata Helm Repository
 
 ```bash
-project-root/
-├── backend/                 # Express API
-├── frontend/                # React App
-└── k8s/                     # Kubernetes manifests
+helm repo add netdata https://netdata.github.io/helmchart/
+helm repo update
+
 ```
 
----
+----------
 
-## 🚀 Getting Started
-
-### Prerequisites
-
-* Node.js (v16+)
-* MongoDB (local or Atlas)
-* npm / yarn
-
-### Installation
+### 2️⃣ Create Namespace
 
 ```bash
-git clone https://github.com/yourusername/shopeasy.git
-cd shopeasy
+kubectl create namespace netdata
 
-# Install frontend
-cd frontend
-npm install
-
-# Install backend
-cd ../backend
-npm install
 ```
 
-### Environment Variables
+----------
 
-Create `.env` inside `backend/`:
-
-```env
-PORT=5174
-MONGO_URI=your_mongodb_connection_string
-JWT_SECRET=your_jwt_secret
-```
-
----
-
-## 🧪 Run Locally
+### 3️⃣ Install Netdata with NodePort
 
 ```bash
-# Backend
-cd backend
-npm start
+helm install netdata netdata/netdata \
+  --namespace netdata \
+  --set service.type=NodePort \
+  --set service.nodePort=30080
 
-# Frontend
-cd ../frontend
-npm run dev
 ```
 
-Open `http://localhost:5174` in your browser.
+Or use `values.yaml`:
 
----
+```yaml
+service:
+  type: NodePort
+  nodePort: 30080
 
-## ☸️ Kubernetes Setup (`k8s/` Folder)
-
-This project includes Kubernetes manifest files to deploy the full stack locally using **Minikube**. This includes backend, frontend, MongoDB, persistent volumes, secrets, and ingress routing.
-
----
-
-### 📁 k8s Folder Structure
+```
 
 ```bash
-k8s/
-├── ecom-backend-deployment.yml       # Backend deployment
-├── ecom-backend-service.yml          # Backend service
-├── ecom-frontend-deployment.yml      # Frontend deployment
-├── ecom-frontend-service.yml         # Frontend service
-├── ecom-ingress.yml                  # Ingress routing
-├── ecom-mongo-service.yml            # MongoDB service
-├── mongodb-deployment.yml            # MongoDB deployment
-├── mongo-pvc.yml                     # PersistentVolumeClaim for Mongo
-├── ecom-pv.yml                       # PersistentVolume definition
-├── secret.yml                        # Secrets for sensitive env vars
-├── namespace.yml                     # Custom namespace (optional)
-├── kube.sh                           # Shell script to apply all files
+helm install netdata netdata/netdata -n netdata -f values.yaml
+
 ```
 
----
+**Screenshot:**  
+![Values YAML](resource/monitoring.png)
 
-### 🚀 Steps to Deploy
+----------
 
-#### 1. **Start Minikube**
+## 📦 Verify Deployment
 
 ```bash
-minikube start
+kubectl get pods -n netdata
+kubectl get svc -n netdata
+
 ```
 
-#### 2. **Enable Ingress Addon**
+**Screenshot:**  
+![Service List](resources/svc.png)
+
+-   NodePort allows access from outside the cluster
+    
+-   Example URL: `http://<node-ip>:30080`
+    
+-   Netdata dashboard is **accessible without login**
+    
+
+**Screenshot:**  
+![Monitoring Dashboard](resources/monitoring.png)
+
+![Monitoring Dashboard](resources/m2.png)
+
+----------
+
+## 📁 Project File Structure
+
+Here’s the folder structure for deploying Netdata in Kubernetes:
 
 ```bash
-minikube addons enable ingress
+e-com
+├── frontend                  # frontend of the project
+├── backend          		 # backend of the project 
+├── K8s                      # files to deploy the pods                    
+
 ```
 
-#### 3. **Run Deployment Script**
+> This structure ensures easy deployment and management for Netdata monitoring in your cluster.
+
+----------
+
+## ⚡ Quick Cleanup
 
 ```bash
-cd k8s
-chmod +x kube.sh
-./kube.sh
-```
-
-Or apply manually:
-
-```bash
-kubectl apply -f namespace.yml
-kubectl apply -f secret.yml
-kubectl apply -f mongo-pvc.yml
-kubectl apply -f ecom-pv.yml
-kubectl apply -f mongodb-deployment.yml
-kubectl apply -f ecom-mongo-service.yml
-kubectl apply -f ecom-backend-deployment.yml
-kubectl apply -f ecom-backend-service.yml
-kubectl apply -f ecom-frontend-deployment.yml
-kubectl apply -f ecom-frontend-service.yml
-kubectl apply -f ecom-ingress.yml
-```
-
-> ⚠️ Apply in order to avoid dependency issues.
-
----
-
-### 🧾 Update `/etc/hosts`
-
-Edit your `/etc/hosts` file and add:
-
-```bash
-121.0.0.1 shopeasy.local
-```
-
-> Used in Ingress config for local testing.
-
----
-
-### ✅ Verify Setup
-
-```bash
-kubectl get all -n your-namespace-name  # if using a namespace
-kubectl get ingress
-```
-
-Then visit:
+helm uninstall netdata --namespace netdata
+kubectl delete namespace netdata
 
 ```
-http://shopeasy.local
-```
 
----
+----------
 
-### 📌 Notes
+## ✅ Notes
 
-- Make sure ports match (5174 backend, etc.)
-- Mongo uses PVC + PV for storage
-- Secrets handled via `secret.yml`
-- `kube.sh` helps deploy all manifests at once
+-   NodePort enables browser access from your local machine
+    
+-   Works with any Kubernetes cluster
+    
+-   Screenshots guide you through Helm repo add, install, and dashboard
+    
 
----
-
-## 📌 Next Steps
-
-* [ ] CI/CD pipeline with GitHub Actions
-* [ ] Monitoring setup
-* [ ] Infra enhancements (IaC, scaling, etc.)
-
----
-
-## 📚 License
-
-MIT – see [LICENSE](LICENSE)
-
----
----
+----------
 
 ## 🤝 Connect
 
@@ -245,3 +137,4 @@ MIT – see [LICENSE](LICENSE)
 📧 [x45960@gmail.com](mailto:x45960@gmail.com)  
 🐙 [GitHub](https://github.com/KARKNAIK18)
 
+---
