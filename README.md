@@ -1,4 +1,4 @@
-
+<img width="660" height="77" alt="image" src="https://github.com/user-attachments/assets/c5d7c929-2b74-4589-80a7-e7fb5e81edd6" />
 # 📊 Netdata Monitoring – Kubernetes Guide
 
 ![Status](https://img.shields.io/badge/status-Setup%20Complete-lightgrey)  
@@ -29,9 +29,6 @@ helm repo update
 
 ```
 
-**Screenshot:**  
-![Helm Repo Add](resources/helmrepoadd.png)
-
 ----------
 
 ### 2️⃣ Create Namespace
@@ -53,9 +50,6 @@ helm install netdata netdata/netdata \
 
 ```
 
-**Screenshot:**  
-![Helm Install](resources/install.png)
-
 Or use `values.yaml`:
 
 ```yaml
@@ -71,7 +65,7 @@ helm install netdata netdata/netdata -n netdata -f values.yaml
 ```
 
 **Screenshot:**  
-![Values YAML](resources/m2.png)
+![Values YAML](resource/monitoring.png)
 
 ----------
 
@@ -84,7 +78,7 @@ kubectl get svc -n netdata
 ```
 
 **Screenshot:**  
-![Service List](resources/repolist.png)
+![Service List](resources/svc.png)
 
 -   NodePort allows access from outside the cluster
     
@@ -95,6 +89,8 @@ kubectl get svc -n netdata
 
 **Screenshot:**  
 ![Monitoring Dashboard](resources/monitoring.png)
+
+![Monitoring Dashboard](resources/m2.png)
 
 ----------
 
