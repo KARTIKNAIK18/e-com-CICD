@@ -1,27 +1,36 @@
-<img width="660" height="77" alt="image" src="https://github.com/user-attachments/assets/c5d7c929-2b74-4589-80a7-e7fb5e81edd6" />
-# 📊 Netdata Monitoring – Kubernetes Guide
+# 📊 Netdata Monitoring on Kubernetes
+
+> _Real-time metrics. Effortless setup. Visual insights._
 
 ![Status](https://img.shields.io/badge/status-Setup%20Complete-lightgrey)  
-![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
-
-This guide demonstrates how to **deploy Netdata monitoring** on a Kubernetes cluster using **Helm**, including NodePort access, custom namespace, and verifying dashboards. Screenshots and commands are included for easy setup.
-
-----------
-
-## 🧰 Prerequisites
-
--   Kubernetes cluster (Kind, Minikube, or any cloud provider)
-    
--   Helm v3+ installed
-    
--   `kubectl` configured for your cluster
-    
+![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)  
+![Kubernetes](https://img.shields.io/badge/Kubernetes-Ready-blue)  
+![Helm](https://img.shields.io/badge/Helm-v3%2B-green)
 
 ----------
 
-## 🚀 Helm Installation Steps
+## 🧭 Overview
 
-### 1️⃣ Add Netdata Helm Repository
+This guide helps you deploy **Netdata** on a Kubernetes cluster using **Helm**, with:
+
+-   ✅ NodePort access for browser-based dashboards
+-   ✅ Custom namespace isolation
+-   ✅ Visual verification via screenshots
+-   ✅ Easy cleanup and modular structure
+
+----------
+## 🧰 Requirements
+
+| 🛠️ Tool       | 📦 Version     | 🎯 Purpose                  |
+|---------------|----------------|-----------------------------|
+| Kubernetes    | Any distro     | Cluster environment         |
+| Helm          | v3+            | Package manager for K8s     |
+| kubectl       | Configured     | CLI for Kubernetes          |
+
+
+## 🚀 Deployment Steps
+
+### 1️⃣ Add Netdata Helm Repo
 
 ```bash
 helm repo add netdata https://netdata.github.io/helmchart/
@@ -42,6 +51,8 @@ kubectl create namespace netdata
 
 ### 3️⃣ Install Netdata with NodePort
 
+#### Option A: Inline Helm Install
+
 ```bash
 helm install netdata netdata/netdata \
   --namespace netdata \
@@ -50,9 +61,10 @@ helm install netdata netdata/netdata \
 
 ```
 
-Or use `values.yaml`:
+#### Option B: Use `values.yaml`
 
 ```yaml
+# values.yaml
 service:
   type: NodePort
   nodePort: 30080
@@ -64,53 +76,50 @@ helm install netdata netdata/netdata -n netdata -f values.yaml
 
 ```
 
-**Screenshot:**  
-![Values YAML](resource/monitoring.png)
+----------
+
+## 📸 Visual Walkthrough
+
+### 🔍 Namespace Status
+
+![Namespace Overview](resource/svc.png)
+
+> All Netdata pods and services running in the `netdata` namespace.
 
 ----------
 
-## 📦 Verify Deployment
+### 📊 Netdata Dashboards
+
+#### 🧠 System Metrics
+
+![Dashboard 1](resource/monitoring.png)
+
+> Real-time CPU, memory, disk I/O, and network stats.
+
+#### 📈 Extended Monitoring
+
+![Dashboard 2](monitoring/m2.png)
+
+> Detailed breakdown of services, containers, and system health.
+
+----------
+
+## 🗂️ Project Structure
 
 ```bash
-kubectl get pods -n netdata
-kubectl get svc -n netdata
+e-com/
+├── frontend/                # Frontend application
+├── backend/                 # Backend services
+├── K8s/                     # Kubernetes manifests & Helm configs
+│   └── netdata/             # Netdata-specific files & screenshots
 
 ```
 
-**Screenshot:**  
-![Service List](resources/svc.png)
-
--   NodePort allows access from outside the cluster
-    
--   Example URL: `http://<node-ip>:30080`
-    
--   Netdata dashboard is **accessible without login**
-    
-
-**Screenshot:**  
-![Monitoring Dashboard](resources/monitoring.png)
-
-![Monitoring Dashboard](resources/m2.png)
-
 ----------
 
-## 📁 Project File Structure
+## 🧹 Cleanup
 
-Here’s the folder structure for deploying Netdata in Kubernetes:
-
-```bash
-e-com
-├── frontend                  # frontend of the project
-├── backend          		 # backend of the project 
-├── K8s                      # files to deploy the pods                    
-
-```
-
-> This structure ensures easy deployment and management for Netdata monitoring in your cluster.
-
-----------
-
-## ⚡ Quick Cleanup
+To remove Netdata from your cluster:
 
 ```bash
 helm uninstall netdata --namespace netdata
@@ -120,21 +129,21 @@ kubectl delete namespace netdata
 
 ----------
 
-## ✅ Notes
+## ✅ Highlights
 
--   NodePort enables browser access from your local machine
-    
--   Works with any Kubernetes cluster
-    
--   Screenshots guide you through Helm repo add, install, and dashboard
-    
+-   🌐 NodePort enables browser access from your local machine
+-   🖼️ Screenshots guide you through setup and dashboard access
+-   🔄 Works with any Kubernetes distribution
+-   🧩 Easily extendable with custom Helm values
 
 ----------
 
-## 🤝 Connect
+## 🤝 Author
 
-**Kartik Naik**  
+**👨‍💻 Kartik Naik**  
 📧 [x45960@gmail.com](mailto:x45960@gmail.com)  
 🐙 [GitHub](https://github.com/KARKNAIK18)
 
----
+----------
+
+Would you like me to help you turn this into a GitHub Pages site or generate a matching banner for your repo?
