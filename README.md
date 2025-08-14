@@ -2,10 +2,11 @@
 
 > _Real-time metrics. Effortless setup. Visual insights._
 
-![Status](https://img.shields.io/badge/status-Setup%20Complete-lightgrey)  
-![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)  
-![Kubernetes](https://img.shields.io/badge/Kubernetes-Ready-blue)  
+![Status](https://img.shields.io/badge/status-Setup%20Complete-lightgrey) &nbsp;
+![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg) &nbsp;
+![Kubernetes](https://img.shields.io/badge/Kubernetes-Ready-blue) &nbsp;
 ![Helm](https://img.shields.io/badge/Helm-v3%2B-green)
+
 
 ----------
 
@@ -82,7 +83,7 @@ helm install netdata netdata/netdata -n netdata -f values.yaml
 
 ### 🔍 Namespace Status
 
-![Namespace Overview](resource/svc.png)
+![Namespace Overview](resource/all.png)
 
 > All Netdata pods and services running in the `netdata` namespace.
 
@@ -98,7 +99,7 @@ helm install netdata netdata/netdata -n netdata -f values.yaml
 
 #### 📈 Extended Monitoring
 
-![Dashboard 2](monitoring/m2.png)
+![Dashboard 2](resource/m2.png)
 
 > Detailed breakdown of services, containers, and system health.
 
