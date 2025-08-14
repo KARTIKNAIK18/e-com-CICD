@@ -54,7 +54,7 @@ helm install netdata netdata/netdata \
 ```
 
 **Screenshot:**  
-![Helm Install](https://chatgpt.com/c/install.png)
+![Helm Install](resources/install.png)
 
 Or use `values.yaml`:
 
@@ -71,7 +71,7 @@ helm install netdata netdata/netdata -n netdata -f values.yaml
 ```
 
 **Screenshot:**  
-![Values YAML](https://chatgpt.com/c/m2.png)
+![Values YAML](resources/m2.png)
 
 ----------
 
@@ -84,7 +84,7 @@ kubectl get svc -n netdata
 ```
 
 **Screenshot:**  
-![Service List](https://chatgpt.com/c/repolist.png)
+![Service List](resources/repolist.png)
 
 -   NodePort allows access from outside the cluster
     
@@ -94,11 +94,11 @@ kubectl get svc -n netdata
     
 
 **Screenshot:**  
-![Monitoring Dashboard](https://chatgpt.com/c/monitoring.png)
+![Monitoring Dashboard](resources/monitoring.png)
 
 ----------
 
-## 📁 Kubernetes File Structure
+## 📁 Project File Structure
 
 Here’s the folder structure for deploying Netdata in Kubernetes:
 
