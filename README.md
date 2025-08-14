@@ -146,5 +146,3 @@ kubectl delete namespace netdata
 🐙 [GitHub](https://github.com/KARKNAIK18)
 
 ----------
-
-Would you like me to help you turn this into a GitHub Pages site or generate a matching banner for your repo?
